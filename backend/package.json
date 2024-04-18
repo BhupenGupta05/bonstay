@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "lint": "eslint ."
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +25,8 @@
     "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin-js": "^1.7.2",
+    "eslint": "^9.0.0",
     "nodemon": "^3.1.0"
   }
 }
