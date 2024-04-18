@@ -8,7 +8,7 @@ const addPlace = async (token, place) => {
         },
     };
 
-    const {data} = await axios.post(`${apiBaseUrl}/places`, place, config)
+    const {data} = await axios.post(`${apiBaseUrl}/account/places`, place, config)
     return data;
 }
 
@@ -30,7 +30,7 @@ const getPlace = async (token, id) => {
     },
 };
 
-const {data} = await axios.get(`${apiBaseUrl}/places/${id}`, config)
+const {data} = await axios.get(`${apiBaseUrl}/account/places/${id}`, config)
 return data;
 }
 
@@ -41,7 +41,7 @@ const updatePlace = async (token, id, place) => {
     },
 };
 
-const {data} = await axios.put(`${apiBaseUrl}/places/${id}`, {id, ...place}, config)
+const {data} = await axios.put(`${apiBaseUrl}/account/places`, {id, ...place}, config)
 return data;
 }
 

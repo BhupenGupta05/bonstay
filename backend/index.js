@@ -44,7 +44,7 @@ app.use('/api/profile', tokenExtractor, userExtractor, profileRouter)
 app.use(tokenExtractor)
 app.use('/api/uploadLink', uploadRouter)
 app.use('/api/uploadDevice', uploadDeviceRouter)
-app.use('/api/places', userExtractor, placesRouter)
+app.use('/api/account/places', userExtractor, placesRouter)
 app.use('/api/user-places', userExtractor, userPlacesRouter)
 
 app.use(unknownEndpoint)
