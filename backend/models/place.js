@@ -38,7 +38,6 @@ const placeSchema = new mongoose.Schema({
     },
     extraInfo: {
         type: String,
-        required: true,
     },
     photos: [String],
     address: {

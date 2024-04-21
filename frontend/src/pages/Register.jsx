@@ -1,28 +1,28 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import registerService from '../services/register'
 
 const Registration = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [address, setAddress] = useState('')
+  const [password, setPassword] = useState('')
   const navigate = useNavigate()
 
   const registerUser = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (!name || !email || !password || !phone || !address) {
-      return;
+      return
     }
 
     try {
-        await registerService.register({ name, email, password, phone, address })
-        alert('Registeration successful !')
-        navigate('/')
+      await registerService.register({ name, email, password, phone, address })
+      alert('Registeration successful !')
+      navigate('/')
     } catch (error) {
-      console.error(error.message);
+      console.error(error.message)
     }
   }
 
@@ -55,7 +55,7 @@ const Registration = () => {
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
-          
+
           <input
             type="password"
             placeholder="password"
@@ -64,12 +64,12 @@ const Registration = () => {
           />
           <button className="primary">Register</button>
           <div className="text-center py-2 text-gray-500">
-            Already a member? <Link className="underline text-black" to={"/login"}>Login</Link>
+            Already a member? <Link className="underline text-black" to={'/login'}>Login</Link>
           </div>
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Registration;
+export default Registration

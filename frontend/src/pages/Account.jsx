@@ -1,9 +1,12 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import AccountNav from '../components/AccountNav'
+import { useContext } from 'react'
+import { UserContext } from '../UserContext'
 
-const Account = ({user, setUser}) => {
+const Account = () => {
+  const { user, setUser } = useContext(UserContext)
   const navigate = useNavigate()
-  const {subpage} = useParams()
+  const { subpage } = useParams()
 
   const currentPage = subpage || 'profile'
 
@@ -17,10 +20,10 @@ const Account = ({user, setUser}) => {
     <div>
       <AccountNav />
       {currentPage === 'profile' && (
-      <div className="text-center max-w-sm mx-auto">
+        <div className="text-center max-w-sm mx-auto">
         Logged in as {user?.name} ({user?.email})
-        <button onClick={handleLogout} className="primary max-w-sm mt-2">Logout</button>
-      </div>
+          <button onClick={handleLogout} className="primary max-w-sm mt-2">Logout</button>
+        </div>
       )}
     </div>
   )

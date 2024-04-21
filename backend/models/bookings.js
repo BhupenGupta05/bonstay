@@ -9,6 +9,7 @@ const bookingSchema = new mongoose.Schema({
     user: {
         type:mongoose.Schema.Types.ObjectId, 
         required:true,
+        ref: 'User'
     },
     checkIn: {
         type:Date, 
@@ -17,6 +18,10 @@ const bookingSchema = new mongoose.Schema({
     checkOut: {
         type:Date, 
         required:true
+    },
+    persons: {
+        type: Number,
+        required: true
     },
     name: {
         type:String, 

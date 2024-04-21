@@ -2,6 +2,15 @@ const Place = require('../models/place');
 
 const placesRouter = require('express').Router()
 
+placesRouter.get('/', async (req, res) => {
+  try {
+    const places = await Place.find({});
+    res.json(places);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+}
+})
+
 placesRouter.get('/:id', async (req, res) => {
     const {id} = req.params
     res.json(await Place.findById(id))

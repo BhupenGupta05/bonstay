@@ -11,6 +11,7 @@ const uploadRouter = require('./controllers/uploadByLink')
 const uploadDeviceRouter = require('./controllers/uploadByDevice')
 const placesRouter = require('./controllers/places')
 const userPlacesRouter = require('./controllers/userPlaces')
+const bookingsRouter = require('./controllers/bookings')
 
 
 const url = process.env.MONGODB_URL
@@ -39,12 +40,14 @@ app.use(requestLogger)
 
 app.use('/api/register', userRouter)
 app.use('/api/login', loginRouter)
+app.use('/api/places', placesRouter)
 
 app.use('/api/profile', tokenExtractor, userExtractor, profileRouter)
 app.use(tokenExtractor)
 app.use('/api/uploadLink', uploadRouter)
 app.use('/api/uploadDevice', uploadDeviceRouter)
 app.use('/api/account/places', userExtractor, placesRouter)
+app.use('/api/account/bookings', userExtractor, bookingsRouter)
 app.use('/api/user-places', userExtractor, userPlacesRouter)
 
 app.use(unknownEndpoint)
