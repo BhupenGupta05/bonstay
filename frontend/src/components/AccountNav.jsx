@@ -10,7 +10,7 @@ const AccountNav = () => {
   }
 
   const selectClasses = (type=undefined) => {
-    let classes = 'inline-flex items-center gap-2 py-2 px-6 rounded-full'
+    let classes = 'inline-flex items-center gap-2 py-2 px-6 rounded-full transition-all duration-200 ease-in-out'
 
     if(type === subpage) {
       classes += ' bg-primary text-white'
@@ -20,7 +20,7 @@ const AccountNav = () => {
     return classes
   }
   return (
-    <nav className="flex justify-center gap-4 w-full mt-8 mb-8">
+    <nav className="sm:flex sm:justify-center sm:gap-4 sm:mt-6 sm:mb-6 md:flex md:justify-center lg:flex lg:justify-center md:gap-4 lg:w-full lg:mt-8 lg:mb-8 md:mt-8 md:mb-8 flex justify-center gap-4 mt-8 mb-8 w-full">
       <Link className={selectClasses('profile')} to={'/account'}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width={16} height={16} className={subpage === 'profile' ? 'text-white' : ''}>
           <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" fill="currentColor"/>

@@ -68,6 +68,9 @@ bookingsRouter.post('/', async (req, res) => {
         })
 
         const newBooking = await booking.save()
+
+        user.bookings.push(newBooking.id)
+        await user.save()
         
         res.json(newBooking)
     } catch (error) {
