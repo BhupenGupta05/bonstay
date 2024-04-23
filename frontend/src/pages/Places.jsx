@@ -44,7 +44,7 @@ const Places = () => {
           <Link to={`/account/places/${place.id}`} key={place.id} className="inline-flex gap-4 bg-gray-200 rounded-2xl cursor-pointer p-4 mt-4 min-w-full">
             <div className="flex w-36 h-36 bg-gray-100 shrink-0">
               {place.photos.length > 0 && (
-                <img src={`http://localhost:5000/uploads/${place.photos[0]}`} className='object-cover rounded-md w-full h-full' alt="" />
+                <img src={`https://bonstay-backend.onrender.com/uploads/${place.photos[0]}`} className='object-cover rounded-md w-full h-full' alt="" />
               )}
             </div>
             <div className="grow-0 shrink">

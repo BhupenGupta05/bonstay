@@ -57,7 +57,7 @@ const Bookings = () => {
           <Link key={booking.id} to={`/account/bookings/${booking.id}`} >
             <div className='w-48 h-48'>
               {booking.place.photos.length > 0 && (
-                <img src={`http://localhost:5000/uploads/${booking.place.photos[0]}`} className='object-cover w-full h-full' alt="" />
+                <img src={`https://bonstay-backend.onrender.com/uploads/${booking.place.photos?.[0]}`} className='object-cover w-full h-full' alt="" />
               )}
             </div>
           </Link>

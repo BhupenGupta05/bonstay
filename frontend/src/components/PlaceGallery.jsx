@@ -18,7 +18,7 @@ const PlaceGallery = ({ place }) => {
           </div>
           {place?.photos?.length > 0 && place.photos.map((photo, index) => (
             <div key={index}>
-              <img src={`http://localhost:5000/uploads/${photo}`} alt="" className="object-cover w-full h-full rounded-lg" />
+              <img src={`https://bonstay-backend.onrender.com/uploads/${photo}`} alt="" className="object-cover w-full h-full rounded-lg" />
             </div>
           ))}
         </div>
@@ -30,15 +30,15 @@ const PlaceGallery = ({ place }) => {
       <div className="grid gap-2 grid-cols-[2fr_1fr] rounded-3xl overflow-hidden">
         <div>
           {place.photos?.[0] && (
-            <img onClick={() => setShowPhotos(true)} src={`http://localhost:5000/uploads/${place.photos[0]}`} className="cursor-pointer object-cover w-full h-full" alt="" />
+            <img onClick={() => setShowPhotos(true)} src={`https://bonstay-backend.onrender.com/uploads/${place.photos[0]}`} className="cursor-pointer object-cover w-full h-full" alt="" />
           )}
         </div>
         <div className="cursor-pointer flex flex-col gap-2">
           {place.photos?.[1] && (
-            <img onClick={() => setShowPhotos(true)} src={`http://localhost:5000/uploads/${place.photos[1]}`} className="cursor-pointer object-cover flex-1" alt="" />
+            <img onClick={() => setShowPhotos(true)} src={`https://bonstay-backend.onrender.com/uploads/${place.photos[1]}`} className="cursor-pointer object-cover flex-1" alt="" />
           )}
           {place.photos?.[2] && (
-            <img onClick={() => setShowPhotos(true)} src={`http://localhost:5000/uploads/${place.photos[2]}`} className="cursor-pointer object-cover flex-1" alt="" />
+            <img onClick={() => setShowPhotos(true)} src={`https://bonstay-backend.onrender.com/uploads/${place.photos[2]}`} className="cursor-pointer object-cover flex-1" alt="" />
           )}
 
         </div>
