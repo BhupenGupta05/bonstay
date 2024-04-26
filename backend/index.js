@@ -28,7 +28,7 @@ mongoose.connect(url)
   })
 
 // app.use(cors({
-//   origin: process.env.apiBaseUrl || "http://localhost:5173",
+//   origin: "http://localhost:5173",
 //   credentials: true
 // }))
 
