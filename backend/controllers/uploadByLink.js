@@ -19,7 +19,7 @@ uploadRouter.post('/', async (req, res) => {
     
     res.json({ url: s3Url });
 
-    // Optionally, you can delete the local file after uploading to S3
+    
     fs.unlinkSync(destPath);
 })
 
