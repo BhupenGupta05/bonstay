@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import AccountNav from '../components/AccountNav'
 import placeService from '../services/place'
+import { BASE_URL } from '../constants'
 
 const Places = () => {
     const [places, setPlaces] = useState([])
@@ -59,7 +60,7 @@ const Places = () => {
                             <div className="flex w-36 h-36 bg-gray-100 shrink-0">
                                 {place.photos.length > 0 && (
                                     <img
-                                        src={`https://bonstay-backend.onrender.com/uploads/${place.photos[0]}`}
+                                        src={`${BASE_URL}/uploads/${place.photos[0]}`}
                                         className="object-cover rounded-md w-full h-full"
                                         alt=""
                                     />

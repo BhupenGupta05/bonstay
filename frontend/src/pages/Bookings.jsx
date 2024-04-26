@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import AccountNav from '../components/AccountNav'
 import bookingService from '../services/bookings'
 import BookingDates from '../components/BookingDates'
+import { BASE_URL } from '../constants'
+
 
 const Bookings = () => {
     const [bookings, setBookings] = useState([])
@@ -67,7 +69,7 @@ const Bookings = () => {
                             <Link key={booking.id} to={`/account/bookings/${booking.id}`} >
                                 <div className='w-48 h-48'>
                                     {booking.place.photos.length > 0 && (
-                                        <img src={`https://bonstay-backend.onrender.com/uploads/${booking.place.photos[0]}`} className='object-cover w-full h-full' alt="" />
+                                        <img src={`${BASE_URL}/uploads/${booking.place.photos[0]}`} className='object-cover w-full h-full' alt="" />
                                     )}
                                 </div>
                             </Link>

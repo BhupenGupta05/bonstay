@@ -1,6 +1,7 @@
 const uploadRouter = require('express').Router()
 const path = require('path')
 const imageDownloader = require('image-downloader')
+const { uploadToS3 } = require('../utils/helper')
 
 uploadRouter.post('/', async (req, res) => {
     const {link} = req.body
@@ -11,7 +12,14 @@ uploadRouter.post('/', async (req, res) => {
         url: link,
         dest: destPath,
     })
-    res.json(newName)
+
+    const fileBuffer = fs.readFileSync(destPath)
+    const s3Url = await uploadToS3(fileBuffer, newName);
+    
+    res.json({ url: s3Url });
+
+    // Optionally, you can delete the local file after uploading to S3
+    fs.unlinkSync(destPath);
 })
 
 module.exports = uploadRouter
