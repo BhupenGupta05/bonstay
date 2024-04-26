@@ -14,7 +14,6 @@ const placesRouter = require('./controllers/places')
 const userPlacesRouter = require('./controllers/userPlaces')
 const bookingsRouter = require('./controllers/bookings')
 
-
 const url = process.env.MONGODB_URL
 console.log('connecting to', url)
 mongoose.set('strictQuery', false)
@@ -34,7 +33,6 @@ mongoose.connect(url)
 // }))
 
 app.use(cors())
-
 
 app.use(express.static('dist'))
 app.use(express.json())
