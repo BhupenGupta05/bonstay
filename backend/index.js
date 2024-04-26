@@ -27,12 +27,12 @@ mongoose.connect(url)
     console.error('error connecting to MongoDB:', error.message)
   })
 
-app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true
-}))
+// app.use(cors({
+//   origin: "http://localhost:5173",
+//   credentials: true
+// }))
 
-// app.use(cors())
+app.use(cors())
 
 app.use(express.static('dist'))
 app.use(express.json())

@@ -1,5 +1,6 @@
 const uploadRouter = require('express').Router()
 const path = require('path')
+const fs = require('fs')
 const imageDownloader = require('image-downloader')
 const { uploadToS3 } = require('../utils/helper')
 
