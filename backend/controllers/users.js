@@ -2,6 +2,23 @@ const bcrypt = require('bcrypt')
 const userRouter = require('express').Router()
 const User = require('../models/user')
 
+// userRouter.get('/:id', async (req, res, next) => {
+//     try {
+//         const {id} = req.params;
+//         const existingUser = await User.findById(id);
+
+//         // Check if the user exists
+//         if (!existingUser) {
+//             return res.status(404).json({ error: 'User not found' });
+//         }
+
+//         // Respond with the user information
+//         res.json(existingUser);
+//     } catch (error) {
+//         next(error);
+//     }
+// })
+
 userRouter.post('/', async (req, res, next) => {
     try {
         const {name, email, password, 
