@@ -58,20 +58,20 @@ const PlaceForm = () => {
                 <svg className="animate-spin h-8 w-8 text-primary mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M16.24 16.24l1.41-1.41M4.93 19.07l1.41-1.41M16.24 7.76l1.41 1.41M2 12h2M20 12h2M4.93 12h2.14M16.24 12h2.14" />
                 </svg>
-                <p className="text-primary mt-2">Loading place data...</p>
+                <p className="text-primary text-md mt-2">Loading place data...</p>
             </div>
         )
     }
 
     const inputHeader = (text) => {
         return (
-            <h2 className="text-2xl mt-4">{text}</h2>
+            <h2 className="text-lg mt-4 md:text-xl">{text}</h2>
         )
     }
 
     const inputDescription = (text) => {
         return (
-            <p className="text-gray-500 text-sm">{text}</p>
+            <p className="text-gray-500 text-xs md:text-sm">{text}</p>
         )
     }
 
@@ -105,19 +105,19 @@ const PlaceForm = () => {
     return (
         <div>
             <AccountNav />
-            <form onSubmit={savePlace} className="mx-4">
+            <form onSubmit={savePlace} className="mx-4 md:mx-10">
 
                 {preInput('Title', 'Title for your place. should be short and catchy as in advertisement')}
-                <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder="title, for example: My lovely apt"/>
+                <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder="title, for example: My lovely apt" className='text-xs md:text-sm'/>
 
                 {preInput('Address', 'Address to this place')}
-                <input type="text" value={address} onChange={e => setAddress(e.target.value)}placeholder="address"/>
+                <input type="text" value={address} onChange={e => setAddress(e.target.value)}placeholder="address" className='text-xs md:text-sm'/>
 
                 {preInput('Photos', 'more = better')}
                 <PhotosUploader addedPhotos={photos} onChange={setPhotos} />
 
                 {preInput('Description', 'description of the place')}
-                <textarea value={description} onChange={e => setDescription(e.target.value)} />
+                <textarea value={description} onChange={e => setDescription(e.target.value)} className='text-xs md:text-sm' />
 
                 {preInput('Perks', 'select all the perks of your place')}
                 <div className="grid mt-2 gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
@@ -125,28 +125,28 @@ const PlaceForm = () => {
                 </div>
 
                 {preInput('Extra info', 'house rules, etc')}
-                <textarea value={extraInfo} onChange={e => setExtraInfo(e.target.value)} />
+                <textarea value={extraInfo} onChange={e => setExtraInfo(e.target.value)} className='text-xs md:text-sm' />
 
                 {preInput('Check in & out times', 'add check in and out times, remember to have some time window for cleaning the room between guests')}
                 <div className="grid gap-2 grid-cols-2 md:grid-cols-4">
                     <div>
-                        <h3 className="mt-2 -mb-1">Check in time</h3>
-                        <input type="text" value={checkIn} onChange={e => setCheckIn(e.target.value)} placeholder="12:00" />
+                        <h3 className="text-sm mt-2 sm:-mb-1">Check in time</h3>
+                        <input className='text-xs md:text-sm' type="text" value={checkIn} onChange={e => setCheckIn(e.target.value)} placeholder="12:00" />
                     </div>
                     <div>
-                        <h3 className="mt-2 -mb-1">Check out time</h3>
-                        <input type="text" value={checkOut} onChange={e => setCheckOut(e.target.value)} placeholder="9:00" />
+                        <h3 className="text-sm mt-2 sm:-mb-1">Check out time</h3>
+                        <input className='text-xs md:text-sm' type="text" value={checkOut} onChange={e => setCheckOut(e.target.value)} placeholder="9:00" />
                     </div>
                     <div>
-                        <h3 className="mt-2 -mb-1">Max number of guests</h3>
-                        <input type="number" value={maxGuests} onChange={e => setMaxGuests(e.target.value)} />
+                        <h3 className="text-sm mt-2 sm:-mb-1">Max no. of guests</h3>
+                        <input className='text-xs md:text-sm' type="number" value={maxGuests} onChange={e => setMaxGuests(e.target.value)} />
                     </div>
                     <div>
-                        <h3 className="mt-2 -mb-1">Price per night</h3>
-                        <input type="number" value={price} onChange={e => setPrice(e.target.value)} />
+                        <h3 className="text-sm mt-2 sm:-mb-1">Price per night</h3>
+                        <input className='text-xs md:text-sm' type="number" value={price} onChange={e => setPrice(e.target.value)} />
                     </div>
                 </div>
-                <button className="primary my-4">Save</button>
+                <button className="text-sm tracking-wide primary my-4 md:text-base">Save</button>
             </form>
         </div>
     )

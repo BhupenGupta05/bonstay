@@ -13,8 +13,8 @@ import Booking from './pages/Booking'
 const App = () => {
 
   return (
-    <>
-      <Navbar/>
+    <div className='flex flex-col gap-2'>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/account" element={<Account />} />
@@ -27,7 +27,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registration />} />
       </Routes>
-    </>
+    </div>
   )
 }
 

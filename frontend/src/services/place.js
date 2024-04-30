@@ -57,4 +57,6 @@ const updatePlace = async (token, id, place) => {
 }
 
 
+
+
 export default { addPlace, getPlaces, getPlace, updatePlace, fetchPlaces, fetchPlace }

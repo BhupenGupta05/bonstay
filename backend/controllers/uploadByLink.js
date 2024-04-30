@@ -17,7 +17,8 @@ uploadRouter.post('/', async (req, res) => {
     const fileBuffer = fs.readFileSync(destPath)
     const s3Url = await uploadToS3(fileBuffer, newName);
     
-    res.json({ url: s3Url });
+    // res.json({ url: s3Url });
+    res.json(s3Url);
 
     
     fs.unlinkSync(destPath);
