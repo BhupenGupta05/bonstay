@@ -7,7 +7,7 @@ input[type="email"],input[type="number"],
 input[type="tel"],
 textarea
 {
-    @apply w-full border my-1 py-2 px-3 rounded-2xl;
+    @apply w-full border my-1 py-1 px-3 rounded-2xl placeholder:text-xs md:placeholder:text-sm md:py-2;
 }
 textarea{
     height: 180px;
@@ -17,5 +17,5 @@ button{
 }
 button.primary{
     background-color: #F5385D;
-    @apply bg-primary p-2 w-full text-white rounded-2xl;
+    @apply bg-primary p-1 w-full text-white rounded-2xl;
 }

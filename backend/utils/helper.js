@@ -21,7 +21,7 @@ const uploadToS3 = async (fileBuffer, fileName) => {
         const data = await s3.upload(params).promise();
         return data.Location; // Return the URL of the uploaded image
     } catch (error) {
-        console.error('Error uploading to S3:', error.message);
+        console.error('Error uploading to S3:', error);
         throw new Error('Failed to upload image to S3');
     }
 };
