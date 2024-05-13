@@ -51,6 +51,10 @@ const BookingWidget = ({ place }) => {
     const token = localStorage.getItem('bonstay-token');
     const storedToken = JSON.parse(token);
 
+    if(!storedToken) {
+      navigate('/login');
+    }
+
     try {
       if (bookingId) {
         await bookingService.updateBooking(storedToken, bookingId, bookingDetails);
