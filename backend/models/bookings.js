@@ -3,33 +3,34 @@ const mongoose = require('mongoose')
 const bookingSchema = new mongoose.Schema({ 
     place: {
         type:mongoose.Schema.Types.ObjectId, 
-        required:true, 
+        required: true, 
         ref:'Place'
     },
     user: {
         type:mongoose.Schema.Types.ObjectId, 
-        required:true,
+        required:[true, 'Please login to book your place'],
         ref: 'User'
     },
     checkIn: {
         type:Date, 
-        required:true
+        required:[true, 'Check-in required'],
     },
     checkOut: {
         type:Date, 
-        required:true
+        required:[true, 'Check-out required'],
     },
     persons: {
         type: Number,
-        required: true
+        required:[true, 'Number of persons is required'],
+        min: [1, 'Number of persons must be at least 1'],
     },
     name: {
         type:String, 
-        required:true
+        required: true,
     },
     phone: {
         type:String, 
-        required:true
+        required: true,
     },
     price: Number,
 })

@@ -92,14 +92,20 @@ const PlaceForm = () => {
 
         const place = { title, address, description, perks, extraInfo, photos, checkIn, checkOut, maxGuests, price }
 
-        if (id) {
-            // Update the place
-            await placeService.updatePlace(storedToken, id, place)
-        } else {
-            // Add new place
-            await placeService.addPlace(storedToken, place)
+        try {
+            if (id) {
+                // Update the place
+                await placeService.updatePlace(storedToken, id, place)
+            } else {
+                // Add new place
+                await placeService.addPlace(storedToken, place)
+            }
+            navigate('/account/places')
+        } catch (error) {
+            alert(error.response.data.error);
         }
-        navigate('/account/places')
+
+        
     }
 
     return (
