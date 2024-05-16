@@ -44,7 +44,7 @@ const requestLogger = (request, response, next) => {
       request.user = user
       next()
     } catch (error) {
-      return response.status(401).json({ error: 'Please login' })
+      return response.status(401).json({ error: 'Please login to book the place !' })
     }
   }
 
@@ -56,7 +56,8 @@ const errorHandler = (error, request, response, next) => {
     console.error(error.message)
   
     if (error.name === 'ValidationError') {
-      return response.status(400).send({ error: error.message })
+      const errors = Object.values(error.errors).map(err => err.message);
+      return response.status(400).json({ error: errors.join(', ') });
     } else if (error.name ===  'JsonWebTokenError') {    
       return response.status(401).json({ error: 'token invalid' })  
     } else if (error.name === 'DocumentNotFoundError') {

@@ -16,7 +16,7 @@ placesRouter.get('/:id', async (req, res) => {
     res.json(await Place.findById(id))
 })
 
-placesRouter.post('/', async (req, res) => {
+placesRouter.post('/', async (req, res, next) => {
     try {
         const user = req.user;
 
@@ -43,7 +43,7 @@ placesRouter.post('/', async (req, res) => {
         const savedPlace = await place.save()
         res.status(201).json(savedPlace)
     } catch (error) {
-        res.status(500).json({error: error.message})
+        next(error)
       }
 })
 

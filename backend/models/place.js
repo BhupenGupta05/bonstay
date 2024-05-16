@@ -27,11 +27,11 @@ const placeSchema = new mongoose.Schema({
     },
     title: {
         type: String,
-        required: true,
+        required: [true, 'Title is required'],
     },
     description: {
         type: String,
-        required: true,
+        required: [true, 'Description is required'],
     },
     perks: {
         type: Array,
@@ -39,26 +39,30 @@ const placeSchema = new mongoose.Schema({
     extraInfo: {
         type: String,
     },
-    photos: [String],
+    photos: {
+        type: [String],
+        required: [true, 'Photos required'],
+        min: [3, 'Atleast 3 photos required to add a place']
+    },
     address: {
         type: String,
-        required: true,
+        required: [true, 'Address is required'],
     },
     maxGuests: {
         type: Number,
-        required: true,
+        required: [true, 'Maximum no. of guests required']
     },
     checkIn: {
         type: String,
-        required: true,
+        required: [true, 'Check-in required'],
     },
     checkOut: {
         type: String,
-        required: true,
+        required: [true, 'Check-out required'],
     },
     price: {
         type: Number,
-        required: true,
+        required: [true, 'Price is required']
     },
     reviews: [reviewSchema],
 })

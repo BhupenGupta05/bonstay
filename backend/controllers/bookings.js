@@ -20,7 +20,7 @@ bookingsRouter.get('/', async (req, res) => {
     res.json(await Booking.find({user: user.id}).populate('place'))
 })
 
-bookingsRouter.post('/', async (req, res) => {
+bookingsRouter.post('/', async (req, res, next) => {
     try {
         const user = req.user
         const {place, checkIn, checkOut, persons, name, phone, price} = req.body
@@ -71,10 +71,11 @@ bookingsRouter.post('/', async (req, res) => {
 
         user.bookings.push(newBooking.id)
         await user.save()
-        
+    
         res.json(newBooking)
     } catch (error) {
-        res.status(500).json({error: error.message})
+        // res.status(500).json({error: error.message})
+        next(error);
     }
 })
 
