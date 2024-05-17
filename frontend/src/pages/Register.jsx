@@ -13,16 +13,19 @@ const Registration = () => {
     const registerUser = async (e) => {
         e.preventDefault();
 
-        if (!name || !email || !password || !phone || !address) {
-            return;
-        }
+        // if (!name || !email || !password || !phone || !address) {
+        //     return;
+        // }
 
         try {
             await registerService.register({ name, email, password, phone, address });
             alert('Registration successful!');
             navigate('/');
         } catch (error) {
-            console.error(error.message);
+            // console.error(error.message);
+            console.log(error);
+            alert(error.response.data.error);
+           
         }
     };
 
@@ -47,7 +50,7 @@ const Registration = () => {
                     />
                     <input
                         type="tel"
-                        placeholder="exclude country code"
+                        placeholder="phone(exclude country code)"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         className="w-full px-3 py-2 border rounded-lg"

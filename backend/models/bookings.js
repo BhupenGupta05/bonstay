@@ -21,7 +21,7 @@ const bookingSchema = new mongoose.Schema({
     },
     persons: {
         type: Number,
-        required:[true, 'Number of persons is required'],
+        required:[true, 'Number of persons required'],
         min: [1, 'Number of persons must be at least 1'],
     },
     name: {
