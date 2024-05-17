@@ -27,11 +27,11 @@ const placeSchema = new mongoose.Schema({
     },
     title: {
         type: String,
-        required: [true, 'Title is required'],
+        required: [true, 'Title required'],
     },
     description: {
         type: String,
-        required: [true, 'Description is required'],
+        required: [true, 'Description required'],
     },
     perks: {
         type: Array,
@@ -46,7 +46,7 @@ const placeSchema = new mongoose.Schema({
     },
     address: {
         type: String,
-        required: [true, 'Address is required'],
+        required: [true, 'Address required'],
     },
     maxGuests: {
         type: Number,
@@ -62,7 +62,7 @@ const placeSchema = new mongoose.Schema({
     },
     price: {
         type: Number,
-        required: [true, 'Price is required']
+        required: [true, 'Price required']
     },
     reviews: [reviewSchema],
 })

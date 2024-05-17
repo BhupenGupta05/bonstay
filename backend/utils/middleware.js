@@ -53,7 +53,7 @@ const unknownEndpoint = (request, response) => {
   }
 
 const errorHandler = (error, request, response, next) => {
-    console.error(error.message)
+    console.error(error)
   
     if (error.name === 'ValidationError') {
       const errors = Object.values(error.errors).map(err => err.message);
